@@ -35,7 +35,7 @@ const getCards = (items: Array<GalleryCollectionItem>) => {
             bgImage={`linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.2)), url(${url})`}
           >
             <VStack>
-              <Heading>{title}</Heading>
+              <Heading as="h1">{title}</Heading>
               <Text>{description}</Text>
             </VStack>
           </Center>
