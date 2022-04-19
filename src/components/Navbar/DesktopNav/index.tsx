@@ -8,13 +8,13 @@ import {
   Stack,
   useColorModeValue,
 } from "@chakra-ui/react"
-import { NAV_ITEMS } from "../../models"
+import { NAV_ITEMS } from "../../../static/NavBarTabs"
 import DesktopSubNav from "../DesktopSubNav"
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue("gray.600", "gray.200")
-  const linkHoverColor = useColorModeValue("gray.800", "white")
-  const popoverContentBgColor = useColorModeValue("white", "gray.800")
+  const LINK_COLOR = useColorModeValue("gray.800", "gray.200")
+  const LINK_HOVER_COLOR = useColorModeValue("gray.800", "gray.100")
+  const POPOVER_CONTENT_BG_COLOR = useColorModeValue("gray.50", "gray.900")
 
   return (
     <Stack direction={"row"} spacing={4}>
@@ -27,10 +27,10 @@ const DesktopNav = () => {
                 href={navItem.href ?? "#"}
                 fontSize={"sm"}
                 fontWeight={500}
-                color={linkColor}
+                color={LINK_COLOR}
                 _hover={{
                   textDecoration: "none",
-                  color: linkHoverColor,
+                  color: LINK_HOVER_COLOR,
                 }}
               >
                 {navItem.label}
@@ -41,7 +41,7 @@ const DesktopNav = () => {
               <PopoverContent
                 border={0}
                 boxShadow={"xl"}
-                bg={popoverContentBgColor}
+                bg={POPOVER_CONTENT_BG_COLOR}
                 p={4}
                 rounded={"xl"}
                 minW={"sm"}

@@ -8,7 +8,7 @@ import "swiper/css/navigation"
 import "swiper/css/effect-fade"
 
 import { Pagination, Navigation, EffectFade, Autoplay } from "swiper"
-import { getContentByQuery } from "../../common/services/ContentfulService"
+import { getContentByQuery } from "../../services/common/ContentfulService"
 import { GetLatestHomePageGalleryQuery } from "./queries"
 
 type GalleryCollectionItem = {

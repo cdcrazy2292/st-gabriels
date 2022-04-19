@@ -1,4 +1,4 @@
-import axios, { AxiosPromise } from "axios"
+import axios from "axios"
 const C_SPACE = process.env.NEXT_PUBLIC_C_SPACE
 const C_T = process.env.NEXT_PUBLIC_C_T
 const BASE_URL = `https://graphql.contentful.com/content/v1/spaces/${C_SPACE}/`

@@ -5,28 +5,33 @@ import {
   Flex,
   IconButton,
   Text,
+  Icon,
   useBreakpointValue,
   useColorModeValue,
   useDisclosure,
+  HStack,
 } from "@chakra-ui/react"
+import { FaChurch } from "react-icons/fa"
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons"
 import DesktopNav from "./DesktopNav"
 import MobileNav from "./MobileNav"
 
 const Navbar = () => {
+  const NAVBAR_BG_COLOR_SCHEME = useColorModeValue("brand.50", "brand.900")
+  const NAVBAR_TEXT_COLOR_SCHEME = useColorModeValue("black", "gray.50")
   const { isOpen, onToggle } = useDisclosure()
 
   return (
     <Box>
       <Flex
-        bg={useColorModeValue("white", "gray.800")}
-        color={useColorModeValue("gray.600", "white")}
+        bg={NAVBAR_BG_COLOR_SCHEME}
+        color={NAVBAR_TEXT_COLOR_SCHEME}
         minH={"60px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}
         borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
+        borderColor={useColorModeValue("gray.900", "gray.100")}
         align={"center"}
       >
         <Flex
@@ -44,14 +49,15 @@ const Navbar = () => {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            color={useColorModeValue("gray.800", "white")}
-          >
-            St. Gabriel
-          </Text>
-
+          <HStack as={"a"} href={"/"}>
+            <Icon as={FaChurch} />
+            <Text
+              textAlign={useBreakpointValue({ base: "center", md: "center" })}
+              fontFamily={"sans-serif"}
+            >
+              St. Gabriel Roman Catholic Church
+            </Text>
+          </HStack>
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
           </Flex>
