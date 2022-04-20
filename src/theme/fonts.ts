@@ -1,4 +1,5 @@
 export const fontSizes = {
+  "2xs": "0.5rem",
   xs: "0.75rem",
   sm: "0.875rem",
   md: "1rem",
@@ -12,4 +13,14 @@ export const fontSizes = {
   "7xl": "4.5rem",
   "8xl": "6rem",
   "9xl": "8rem",
+}
+
+export const textStyles = {
+  h1: {
+    fontFamily: "republic-web, serif",
+    // you can also use responsive styles
+    fontWeight: "700",
+    fontSize: "40px",
+    fontStyle: "normal",
+  },
 }

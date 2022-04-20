@@ -23,6 +23,11 @@ const INITIAL_GALLERY_COLLECTION_STATE: GalleryCollectionItem = {
   url: "",
 }
 
+const IMAGE_RESPONSIVE_BOX_SIZE = ["2xs", "xs", "xl", "2xl", "3xl", "4xl"]
+const CAROUSEL_IMG_GRADIENT =
+  "linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.1))"
+const CAROUSEL_AUTOPLAY_DELAY = 4000
+
 const getCards = (items: Array<GalleryCollectionItem>) => {
   console.log("items", items)
   if (items) {
@@ -32,9 +37,10 @@ const getCards = (items: Array<GalleryCollectionItem>) => {
           <Center
             h="100%"
             w="100%"
-            bgImage={`linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.2)), url(${url})`}
+            backgroundSize="100%"
+            bgImage={`${CAROUSEL_IMG_GRADIENT}, url(${url})`}
           >
-            <VStack>
+            <VStack color={"white"}>
               <Heading as="h1">{title}</Heading>
               <Text>{description}</Text>
             </VStack>
@@ -51,25 +57,18 @@ const HomeCarousel: FC = () => {
     INITIAL_GALLERY_COLLECTION_STATE,
   ])
 
-  /**
-   *  Fetches images from contentful
-   */
-  async function getGalleryImages() {
-    const response = await getContentByQuery(GetLatestHomePageGalleryQuery)
-    setGalleryImages(
-      response?.data?.data?.homePagePhotosCollection.items[0]
-        ?.photoGalleryCollection.items
-    )
-  }
-
   useEffect(() => {
-    getGalleryImages()
+    getContentByQuery(GetLatestHomePageGalleryQuery).then((response) => {
+      setGalleryImages(
+        response?.data?.data?.homePagePhotosCollection.items[0]
+          ?.photoGalleryCollection.items
+      )
+    })
   }, [])
 
-  console.log(galleryImages)
   return (
     <>
-      <Box w="100%" h={["sm", "md", "lg", "xl"]}>
+      <Box w="100%" h={IMAGE_RESPONSIVE_BOX_SIZE}>
         <Swiper
           pagination={{
             clickable: true,
@@ -77,7 +76,7 @@ const HomeCarousel: FC = () => {
           navigation={true}
           modules={[Pagination, Navigation, EffectFade, Autoplay]}
           autoplay={{
-            delay: 4000,
+            delay: CAROUSEL_AUTOPLAY_DELAY,
             disableOnInteraction: false,
           }}
           className="mySwiper"
