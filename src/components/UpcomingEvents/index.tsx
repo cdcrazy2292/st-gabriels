@@ -38,7 +38,7 @@ const UpcomingEvents = () => {
   }
 
   return (
-    <Box w="100%" h={["3xs", "xs"]} bgColor={BG_COLOR}>
+    <Box w="100%" h={["3xs", "sm"]} bgColor={BG_COLOR}>
       <VStack alignItems={"flex-start"}>
         <Text
           textStyle={"h1"}

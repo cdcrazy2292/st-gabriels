@@ -8,6 +8,12 @@ const EventCard = (parishEvent: ParishEvent) => {
   // const localeEndDateDetails = parishEvent.endDate
   //   ? getLocaleDateDetails(parishEvent.endDate)
   //   : null
+
+  const getTime = () =>
+    `${localeStartDateDetails.enDate.hour}:
+    ${localeStartDateDetails.enDate.minute} 
+    ${localeStartDateDetails.enDate.dayPeriod}`
+
   return (
     <Flex
       flexDir={"column"}
@@ -19,13 +25,19 @@ const EventCard = (parishEvent: ParishEvent) => {
       color={"brand.800"}
     >
       <Flex flexDir={"column"} alignItems={"flex-start"} pl={5} pr={5}>
-        <Flex flexDir={"column"}>
-          <Text fontSize={["xl", "6xl"]}>
-            {localeStartDateDetails.enDate.day}
-            <Text fontSize={["2xs", "md"]} as={"sub"}>
-              {localeStartDateDetails.enDate.month}
+        <Flex flexDir={"row"} w={"100%"}>
+          <Flex flexDir={"column"}>
+            <Text fontSize={["xl", "6xl"]}>
+              {localeStartDateDetails.enDate.day}
+              <Text fontSize={["2xs", "md"]} as={"sub"}>
+                {localeStartDateDetails.enDate.month}
+              </Text>
             </Text>
-          </Text>
+          </Flex>
+          <Spacer />
+          <Center>
+            <Text fontSize={["lg", "2xl"]}>{getTime()}</Text>
+          </Center>
         </Flex>
       </Flex>
       <Flex flexDir={"column"} overflow="hidden" pl={5} pr={5} pb={5}>
