@@ -18,7 +18,6 @@ export const fontSizes = {
 export const textStyles = {
   h1: {
     fontFamily: "republic-web, serif",
-    // you can also use responsive styles
     fontWeight: "700",
     fontSize: "40px",
     fontStyle: "normal",

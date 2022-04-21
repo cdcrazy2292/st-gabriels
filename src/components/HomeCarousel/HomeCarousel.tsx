@@ -9,7 +9,7 @@ import "swiper/css/effect-fade"
 
 import { Pagination, Navigation, EffectFade, Autoplay } from "swiper"
 import { getContentByQuery } from "../../services/common/ContentfulService"
-import { GetLatestHomePageGalleryQuery } from "./queries"
+import { GetLatestHomePageGalleryQuery } from "../../services/common/ContentfulService/queries/queries"
 
 type GalleryCollectionItem = {
   description: string
@@ -29,7 +29,6 @@ const CAROUSEL_IMG_GRADIENT =
 const CAROUSEL_AUTOPLAY_DELAY = 4000
 
 const getCards = (items: Array<GalleryCollectionItem>) => {
-  console.log("items", items)
   if (items) {
     return items.map(({ description, title, url }, index) => {
       return (
@@ -79,7 +78,7 @@ const HomeCarousel: FC = () => {
             delay: CAROUSEL_AUTOPLAY_DELAY,
             disableOnInteraction: false,
           }}
-          className="mySwiper"
+          loop={true}
         >
           {getCards(galleryImages)}
         </Swiper>

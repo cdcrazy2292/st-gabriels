@@ -1,37 +1,40 @@
 import React from "react"
 import { Center, Flex, Spacer, Text } from "@chakra-ui/react"
+import { ParishEvent } from "../types"
+import { getLocaleDateDetails } from "../../../utils/LocaleUtils/localeutils"
 
-const EventCard = () => {
+const EventCard = (parishEvent: ParishEvent) => {
+  const localeStartDateDetails = getLocaleDateDetails(parishEvent.startDate)
+  // const localeEndDateDetails = parishEvent.endDate
+  //   ? getLocaleDateDetails(parishEvent.endDate)
+  //   : null
   return (
     <Flex
       flexDir={"column"}
-      borderRadius="lg"
+      rounded={"lg"}
+      boxShadow={"xl"}
       bgColor={"brand.150"}
-      overflow="hidden"
-      h={"80%"}
-      w={"30%"}
+      h={"90%"}
+      w={"90%"}
       color={"brand.800"}
     >
       <Flex flexDir={"column"} alignItems={"flex-start"} pl={5} pr={5}>
         <Flex flexDir={"column"}>
           <Text fontSize={["xl", "6xl"]}>
-            25
+            {localeStartDateDetails.enDate.day}
             <Text fontSize={["2xs", "md"]} as={"sub"}>
-              June
+              {localeStartDateDetails.enDate.month}
             </Text>
           </Text>
         </Flex>
       </Flex>
       <Flex flexDir={"column"} overflow="hidden" pl={5} pr={5} pb={5}>
         <Center>
-          <Text fontSize={["xs", "3xl"]}>The Great Mission</Text>
+          <Text fontSize={["xs", "3xl"]}>{parishEvent.eventTitle}</Text>
         </Center>
         <Spacer />
         <Center>
-          <Text fontSize={["2xs", "lg"]}>
-            Come to the park to listen to experiences from young people and
-            their journey to being Christian at such young age
-          </Text>
+          <Text fontSize={["2xs", "lg"]}>{parishEvent.eventDescription}</Text>
         </Center>
       </Flex>
     </Flex>
