@@ -1,5 +1,6 @@
 export const fontSizes = {
-  "2xs": "0.5rem",
+  "3xs": "0.4rem",
+  "2xs": "0.55rem",
   xs: "0.75rem",
   sm: "0.875rem",
   md: "1rem",
@@ -13,6 +14,7 @@ export const fontSizes = {
   "7xl": "4.5rem",
   "8xl": "6rem",
   "9xl": "8rem",
+  "10xl": "10rem",
 }
 
 export const textStyles = {

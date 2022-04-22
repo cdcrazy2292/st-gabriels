@@ -18,7 +18,7 @@ const EventCard = (parishEvent: ParishEvent) => {
     <Flex
       flexDir={"column"}
       rounded={"lg"}
-      boxShadow={"xl"}
+      boxShadow={"lg"}
       bgColor={"brand.150"}
       h={"90%"}
       w={"90%"}
@@ -27,7 +27,7 @@ const EventCard = (parishEvent: ParishEvent) => {
       <Flex flexDir={"column"} alignItems={"flex-start"} pl={5} pr={5}>
         <Flex flexDir={"row"} w={"100%"}>
           <Flex flexDir={"column"}>
-            <Text fontSize={["xl", "6xl"]}>
+            <Text fontSize={["sm", "6xl"]}>
               {localeStartDateDetails.enDate.day}
               <Text fontSize={["2xs", "md"]} as={"sub"}>
                 {localeStartDateDetails.enDate.month}
@@ -36,17 +36,17 @@ const EventCard = (parishEvent: ParishEvent) => {
           </Flex>
           <Spacer />
           <Center>
-            <Text fontSize={["lg", "2xl"]}>{getTime()}</Text>
+            <Text fontSize={["3xs", "2xl"]}>{getTime()}</Text>
           </Center>
         </Flex>
       </Flex>
       <Flex flexDir={"column"} overflow="hidden" pl={5} pr={5} pb={5}>
         <Center>
-          <Text fontSize={["xs", "3xl"]}>{parishEvent.eventTitle}</Text>
+          <Text fontSize={["2xs", "3xl"]}>{parishEvent.eventTitle}</Text>
         </Center>
         <Spacer />
         <Center>
-          <Text fontSize={["2xs", "lg"]}>{parishEvent.eventDescription}</Text>
+          <Text fontSize={["3xs", "lg"]}>{parishEvent.eventDescription}</Text>
         </Center>
       </Flex>
     </Flex>

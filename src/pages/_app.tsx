@@ -15,7 +15,7 @@ function App({ Component, pageProps }: AppProps): React.ReactNode {
     <>
       <Head>
         <title>Saint Gabriel Queens NY</title>
-        <link rel="stylesheet" href="https://use.typekit.net/pnw6lgi.css" />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <ChakraProvider theme={theme}>
         <Navbar />

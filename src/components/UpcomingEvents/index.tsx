@@ -38,7 +38,7 @@ const UpcomingEvents = () => {
   }
 
   return (
-    <Box w="100%" h={["3xs", "sm"]} bgColor={BG_COLOR}>
+    <Box w="100%" h={["2xs", "md"]} bgColor={BG_COLOR}>
       <VStack alignItems={"flex-start"}>
         <Text
           textStyle={"h1"}
@@ -51,7 +51,7 @@ const UpcomingEvents = () => {
           Upcoming Events
         </Text>
       </VStack>
-      <VStack h={"100%"}>
+      <VStack h={"80%"}>
         <Swiper
           slidesPerView={3}
           slidesPerGroup={3}

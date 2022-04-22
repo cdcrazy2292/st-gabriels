@@ -71,7 +71,6 @@ export const getLocaleDateDetails = (dateStr: string): LocaleDateDetails => {
     day: "2-digit",
   }
   const date = new Date(dateStr)
-  console.log(date)
   const usEnDate = new Intl.DateTimeFormat("en-US", options)
   const usEsDate = new Intl.DateTimeFormat("es-US", options)
   const enDate = {
