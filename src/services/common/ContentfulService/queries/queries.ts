@@ -16,15 +16,12 @@ query {
 `
 export const GetParishEvents = `
 query {
-  events(id: "68vXbm6e5QwCF6YzeU4FNT") {
-    eventsRefCollection {
-      total,
-      items {
-        startDate,
-        endDate,
-        eventTitle, 
-        eventDescription
-      }
+  eventCollection {
+    items {
+      startDate,
+      endDate,
+      eventDescription,
+      eventTitle
     }
   }
 }

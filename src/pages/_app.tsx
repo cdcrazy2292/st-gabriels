@@ -5,6 +5,7 @@ import theme from "../theme"
 import "../styles/globals.css"
 import Navbar from "../components/Navbar"
 import Head from "next/head"
+import Footer from "../components/Footer"
 
 /**
  * Component that overrides default App component to use Chakra UI
@@ -20,6 +21,7 @@ function App({ Component, pageProps }: AppProps): React.ReactNode {
       <ChakraProvider theme={theme}>
         <Navbar />
         <Component {...pageProps} />
+        <Footer />
       </ChakraProvider>
     </>
   )

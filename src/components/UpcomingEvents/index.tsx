@@ -15,8 +15,7 @@ const UpcomingEvents = () => {
   const [parishEvents, setParishEvents] = useState(INITIAL_PARISH_EVENTS_LIST)
   useEffect(() => {
     getContentByQuery(GetParishEvents).then((response) => {
-      const parishEvents =
-        response?.data?.data?.events?.eventsRefCollection?.items
+      const parishEvents = response?.data?.data?.eventCollection?.items
       setParishEvents(parishEvents)
     })
   }, [])
