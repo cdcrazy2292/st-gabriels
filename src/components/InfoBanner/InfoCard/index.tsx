@@ -14,7 +14,7 @@ const InfoCard = (props: InfoCardProps) => {
       bgColor={props.bgColor}
       color={props.color}
       flexDir={"column"}
-      justifyContent={"center"}
+      justifyContent={"flex-start"}
       p={props.p}
       gap={props.gap}
     >

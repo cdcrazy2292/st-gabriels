@@ -1,7 +1,7 @@
 import React from "react"
 import { Center, Flex, Spacer, Text } from "@chakra-ui/react"
 import { ParishEvent } from "../types"
-import { getLocaleDateDetails } from "../../../utils/LocaleUtils/localeutils"
+import { getLocaleDateDetails } from "../../../utils/LocaleUtils"
 
 const EventCard = (parishEvent: ParishEvent) => {
   const localeStartDateDetails = getLocaleDateDetails(parishEvent.startDate)

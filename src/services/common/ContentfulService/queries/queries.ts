@@ -29,3 +29,11 @@ query {
   }
 }
 `
+
+export const getRegularParishSchedule = `
+query {
+  regularParishSchedule(id: "5uae2Q6sn9drqDdAVQYZnP") {
+    schedule
+  }
+}
+`
