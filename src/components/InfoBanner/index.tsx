@@ -16,6 +16,9 @@ import {
   RegularParishSchedule,
   Schedule,
 } from "./types"
+import { divideListInChunks } from "../../utils/ListUtils"
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Autoplay, EffectFade, Navigation, Pagination } from "swiper"
 
 const LIGHT_TEXT_COLOR = "brand.50"
 const DARK_TEXT_COLOR = "brand.900"
@@ -60,57 +63,86 @@ const InfoBanner = () => {
   }
 
   const getFinalInfoCardListObj = (parishSchedList: RegularParishSchedule) => {
-    return Object.entries(parishSchedList).map(([key, val], index) => {
-      switch (key) {
-        case "churchOpenSchedule":
-          return {
-            bgColor: "brand.500",
-            color: LIGHT_TEXT_COLOR,
-            icon: ChurchIcon,
-            schedule: val,
-          }
-        case "churchHolyHour":
-          return {
-            bgColor: "brand.200",
-            color: DARK_TEXT_COLOR,
-            icon: Christianity,
-            schedule: val,
-          }
-        case "confessionsSchedule":
-          return {
-            bgColor: "brand.800",
-            color: LIGHT_TEXT_COLOR,
-            icon: Prayer,
-            schedule: val,
-          }
-        case "massSchedule":
-          return {
-            bgColor: "brand.300",
-            color: DARK_TEXT_COLOR,
-            icon: Religious,
-            schedule: val,
-          }
-        case "churchOfficeHours":
-          return {
-            bgColor: "brand.700",
-            color: LIGHT_TEXT_COLOR,
-            icon: Priest,
-            schedule: val,
-          }
-        default:
-          return {
-            bgColor: "brand.500",
-            color: LIGHT_TEXT_COLOR,
-            icon: ChurchIcon,
-            schedule: [INITIAL_SCHEDULE],
-          }
-      }
+    return Object.entries(parishSchedList)
+      .map(([key, val], index) => {
+        switch (key) {
+          case "churchOpenSchedule":
+            return {
+              bgColor: "brand.500",
+              color: LIGHT_TEXT_COLOR,
+              icon: ChurchIcon,
+              schedule: val,
+              pos: 1,
+            }
+          case "churchHolyHour":
+            return {
+              bgColor: "brand.200",
+              color: DARK_TEXT_COLOR,
+              icon: Christianity,
+              schedule: val,
+              pos: 2,
+            }
+          case "massSchedule":
+            return {
+              bgColor: "brand.800",
+              color: LIGHT_TEXT_COLOR,
+              icon: Religious,
+              schedule: val,
+              pos: 3,
+            }
+          case "confessionsSchedule":
+            return {
+              bgColor: "brand.300",
+              color: DARK_TEXT_COLOR,
+              icon: Prayer,
+              schedule: val,
+              pos: 4,
+            }
+          case "churchOfficeHours":
+            return {
+              bgColor: "brand.700",
+              color: LIGHT_TEXT_COLOR,
+              icon: Priest,
+              schedule: val,
+              pos: 5,
+            }
+          default:
+            return {
+              bgColor: "brand.500",
+              color: LIGHT_TEXT_COLOR,
+              icon: ChurchIcon,
+              schedule: [INITIAL_SCHEDULE],
+              pos: 0,
+            }
+        }
+      })
+      .sort((a, b) => (a.pos > b.pos ? 1 : -1))
+  }
+
+  const getSliderInfoCards = (
+    chunks: Array<Array<Schedule>>,
+    bgColor: string
+  ) => {
+    const cards = chunks.map((chunk) => {
+      return getInfoCardContent(chunk)
+    })
+    return cards.map((card, index) => {
+      return (
+        <SwiperSlide key={index}>
+          <VStack w={"100%"} h={"100%"} bgColor={bgColor}>
+            {card}
+          </VStack>
+        </SwiperSlide>
+      )
     })
   }
 
   const getInfoCards = (parishSchedList: RegularParishSchedule) => {
     const finalInfoCardListObj = getFinalInfoCardListObj(parishSchedList)
     return finalInfoCardListObj.map((cardObj: InfoCardElementData, index) => {
+      const cardObjChunks = divideListInChunks(cardObj.schedule, 3) as Array<
+        Array<Schedule>
+      >
       return (
         <InfoCard
           bgColor={cardObj.bgColor}
@@ -120,7 +152,20 @@ const InfoBanner = () => {
           key={index}
         >
           {getIcon(cardObj.icon)}
-          <>{getInfoCardContent(cardObj.schedule)}</>
+          <VStack w={"100%"} h={"100%"} pt={10}>
+            <Swiper
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Pagination, Navigation, EffectFade, Autoplay]}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+            >
+              {getSliderInfoCards(cardObjChunks, cardObj.bgColor)}
+            </Swiper>
+          </VStack>
         </InfoCard>
       )
     })
@@ -136,7 +181,6 @@ const InfoBanner = () => {
     })
   }, [])
 
-  getInfoCards(regParishSched)
   return (
     <Center h={"xl"} bgColor={"brand.150"}>
       <Flex w={"70%"} h={"100%"}>
