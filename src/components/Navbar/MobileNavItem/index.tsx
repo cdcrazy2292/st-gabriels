@@ -9,7 +9,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react"
 import { ChevronDownIcon, Icon } from "@chakra-ui/icons"
-import { NavItem } from "../types/commonTypes"
+import { NavItem } from "../types"
 
 const MobileNavItem = ({ label, children, href }: NavItem) => {
   const COMMON_TEXT_COLOR = useColorModeValue("gray.900", "brand.50")

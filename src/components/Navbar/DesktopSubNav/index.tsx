@@ -1,6 +1,6 @@
 import React from "react"
 import { Box, Link, Stack, Text, useColorModeValue } from "@chakra-ui/react"
-import { NavItem } from "../types/commonTypes"
+import { NavItem } from "../types"
 import { Flex } from "@chakra-ui/react"
 import { ChevronRightIcon, Icon } from "@chakra-ui/icons"
 
