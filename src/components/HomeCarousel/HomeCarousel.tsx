@@ -8,8 +8,8 @@ import "swiper/css/navigation"
 import "swiper/css/effect-fade"
 
 import { Pagination, Navigation, EffectFade, Autoplay } from "swiper"
-import { getContentByQuery } from "../../services/common/ContentfulService"
-import { GetLatestHomePageGalleryQuery } from "../../services/common/ContentfulService/queries/queries"
+import { getContentByQuery } from "../../services/ContentfulService"
+import { GET_LATEST_HOME_PAGE_GALLERY } from "../../services/ContentfulService/queries/queries"
 
 type GalleryCollectionItem = {
   description: string
@@ -57,7 +57,7 @@ const HomeCarousel: FC = () => {
   ])
 
   useEffect(() => {
-    getContentByQuery(GetLatestHomePageGalleryQuery).then((response) => {
+    getContentByQuery(GET_LATEST_HOME_PAGE_GALLERY).then((response) => {
       setGalleryImages(
         response?.data?.data?.homePagePhotosCollection.items[0]
           ?.photoGalleryCollection.items

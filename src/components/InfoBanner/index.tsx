@@ -7,8 +7,8 @@ import Religious from "/public/icons/022-religious.svg"
 import Priest from "/public/icons/priest.svg"
 import { Icon } from "@chakra-ui/icons"
 import InfoCard from "./InfoCard"
-import { getContentByQuery } from "../../services/common/ContentfulService"
-import { getRegularParishSchedule } from "../../services/common/ContentfulService/queries/queries"
+import { getContentByQuery } from "../../services/ContentfulService"
+import { GET_REGULAR_PARISH_SCHEDULE } from "../../services/ContentfulService/queries/queries"
 import {
   InfoCardElementData,
   INITIAL_REG_PARISH_SCHEDULE_STATE,
@@ -174,7 +174,7 @@ const InfoBanner = () => {
   /** Component Logic **/
 
   useEffect(() => {
-    getContentByQuery(getRegularParishSchedule).then((response) => {
+    getContentByQuery(GET_REGULAR_PARISH_SCHEDULE).then((response) => {
       const regParishSched =
         response?.data?.data?.regularParishSchedule?.schedule
       setRegParsihSched(regParishSched)

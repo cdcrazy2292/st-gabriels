@@ -3,8 +3,8 @@ import { Box, Center, Text, VStack } from "@chakra-ui/react"
 import { Autoplay, EffectFade, Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import EventCard from "./EventCard"
-import { getContentByQuery } from "../../services/common/ContentfulService"
-import { GetParishEvents } from "../../services/common/ContentfulService/queries/queries"
+import { getContentByQuery } from "../../services/ContentfulService"
+import { GET_PARISH_EVENTS } from "../../services/ContentfulService/queries/queries"
 import { ParishEvent } from "./types"
 
 const CAROUSEL_AUTOPLAY_DELAY = 4000
@@ -14,7 +14,7 @@ const INITIAL_PARISH_EVENTS_LIST: Array<ParishEvent> = []
 const UpcomingEvents = () => {
   const [parishEvents, setParishEvents] = useState(INITIAL_PARISH_EVENTS_LIST)
   useEffect(() => {
-    getContentByQuery(GetParishEvents).then((response) => {
+    getContentByQuery(GET_PARISH_EVENTS).then((response) => {
       const parishEvents = response?.data?.data?.eventCollection?.items
       setParishEvents(parishEvents)
     })
