@@ -12,9 +12,9 @@ import { NAV_ITEMS } from "../../../static/NavBarTabs"
 import DesktopSubNav from "../DesktopSubNav"
 
 const DesktopNav = () => {
-  const LINK_COLOR = useColorModeValue("gray.800", "gray.200")
-  const LINK_HOVER_COLOR = useColorModeValue("gray.800", "gray.100")
-  const POPOVER_CONTENT_BG_COLOR = useColorModeValue("gray.50", "gray.900")
+  const LINK_COLOR = useColorModeValue("brand.900", "gray.200")
+  const LINK_HOVER_COLOR = useColorModeValue("brand.800", "gray.100")
+  const POPOVER_CONTENT_BG_COLOR = useColorModeValue("brand.100", "gray.900")
 
   return (
     <Stack direction={"row"} spacing={4}>

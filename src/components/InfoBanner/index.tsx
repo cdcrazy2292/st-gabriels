@@ -16,7 +16,7 @@ import {
   RegularParishSchedule,
   Schedule,
 } from "./types"
-import { divideListInChunks } from "../../utils/ListUtils"
+import { divideListInChunks, sortByProperty } from "../../utils/ListUtils"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay, EffectFade, Navigation, Pagination } from "swiper"
 
@@ -63,8 +63,8 @@ const InfoBanner = () => {
   }
 
   const getFinalInfoCardListObj = (parishSchedList: RegularParishSchedule) => {
-    return Object.entries(parishSchedList)
-      .map(([key, val], index) => {
+    const schedList = Object.entries(parishSchedList).map(
+      ([key, val], index) => {
         switch (key) {
           case "churchOpenSchedule":
             return {
@@ -115,8 +115,9 @@ const InfoBanner = () => {
               pos: 0,
             }
         }
-      })
-      .sort((a, b) => (a.pos > b.pos ? 1 : -1))
+      }
+    )
+    return sortByProperty(schedList, "pos")
   }
 
   const getSliderInfoCards = (

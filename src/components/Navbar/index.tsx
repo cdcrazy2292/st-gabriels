@@ -18,7 +18,7 @@ import MobileNav from "./MobileNav"
 
 const Navbar = () => {
   const NAVBAR_BG_COLOR_SCHEME = useColorModeValue("brand.50", "brand.900")
-  const NAVBAR_TEXT_COLOR_SCHEME = useColorModeValue("black", "gray.50")
+  const NAVBAR_TEXT_COLOR_SCHEME = useColorModeValue("brand.900", "gray.50")
   const { isOpen, onToggle } = useDisclosure()
 
   return (

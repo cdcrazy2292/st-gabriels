@@ -15,3 +15,21 @@ export type GeneralPageMessage = {
   locationMessage: PAGE_LOCATION
   citation: string
 }
+
+export type ParishStaffMember = {
+  prefix: string
+  name: string
+  lastName: string
+  membersRole: string
+  membersPicture: Url
+  membersBiography: string
+}
+
+export const INITIAL_PARISH_STAFF_MEMBER_OBJ: ParishStaffMember = {
+  lastName: "",
+  membersBiography: "",
+  membersPicture: { url: "" },
+  membersRole: "",
+  name: "",
+  prefix: "",
+}

@@ -55,3 +55,20 @@ export const getMessagesByPage = (page: PAGE_LOCATION) => {
 }
 `
 }
+
+export const GET_STAFF_MEMBERS = `
+query {
+  parishStaffMemberCollection {
+    items {
+      prefix,
+      name,
+      lastName,
+      membersRole,
+      membersPicture {
+        url
+      },
+      membersBiography      
+    }
+  }
+}
+`

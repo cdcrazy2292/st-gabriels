@@ -3,6 +3,8 @@ import { getContentByQuery } from "../services/ContentfulService"
 import { GET_ABOUT_WELCOME_MESSAGE } from "../services/ContentfulService/queries/aboutPageQueries"
 import { GeneralPageMessage, PAGE_LOCATION } from "../common/commonModels"
 import PageMessage from "../components/shared/PageMessage"
+import { Box } from "@chakra-ui/react"
+import PastoralBanner from "../components/PastoralBanner"
 
 const INITIAL_WELCOME_MESSAGE_OBJ: GeneralPageMessage = {
   headingMessage: "",
@@ -23,7 +25,7 @@ const About = () => {
   }, [])
 
   return (
-    <>
+    <Box>
       <PageMessage
         name={welcomeMessageObj.name}
         headingMessage={welcomeMessageObj.headingMessage}
@@ -32,7 +34,8 @@ const About = () => {
         locationMessage={welcomeMessageObj.locationMessage}
         citation={welcomeMessageObj.citation}
       />
-    </>
+      <PastoralBanner />
+    </Box>
   )
 }
 

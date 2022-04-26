@@ -6,8 +6,8 @@ import { ChevronRightIcon, Icon } from "@chakra-ui/icons"
 
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   const LINK_HOVER_BG_COLOR = useColorModeValue("brand.700", "gray.200")
-  const GROUP_HOVER_COLOR = "gray.50"
-  const SMALL_TEXT_COLOR = "gray.300"
+  const GROUP_HOVER_COLOR = "brand.50"
+  const SMALL_TEXT_COLOR = "brand.200"
   return (
     <Link
       href={href}
