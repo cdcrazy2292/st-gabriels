@@ -17,12 +17,13 @@ export type GeneralPageMessage = {
 }
 
 export type ParishStaffMember = {
-  prefix: string
+  prefix?: string
   name: string
   lastName: string
-  membersRole: string
+  membersRole?: string
   membersPicture: Url
-  membersBiography: string
+  membersBiography?: string
+  residence?: string
 }
 
 export const INITIAL_PARISH_STAFF_MEMBER_OBJ: ParishStaffMember = {
@@ -32,4 +33,5 @@ export const INITIAL_PARISH_STAFF_MEMBER_OBJ: ParishStaffMember = {
   membersRole: "",
   name: "",
   prefix: "",
+  residence: "",
 }

@@ -67,7 +67,8 @@ query {
       membersPicture {
         url
       },
-      membersBiography      
+      membersBiography,
+      residence      
     }
   }
 }
