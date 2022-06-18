@@ -6,6 +6,8 @@ import "../styles/globals.css"
 import Navbar from "../components/Navbar"
 import Head from "next/head"
 import Footer from "../components/Footer"
+import LogRocket from "logrocket"
+LogRocket.init("epmhfu/stgabriels")
 
 /**
  * Component that overrides default App component to use Chakra UI

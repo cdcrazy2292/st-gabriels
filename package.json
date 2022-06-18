@@ -22,6 +22,7 @@
     "@emotion/styled": "^11",
     "axios": "^0.26.1",
     "framer-motion": "^6",
+    "logrocket": "^3.0.1",
     "next": "12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0",
