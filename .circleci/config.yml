@@ -10,14 +10,11 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     working_directory: ~/repo
     docker:
-      - image: cimg/node:17.9
+      - image: cimg/node:current
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
-      - run:
-          name: Update yarn
-          command: "sudo npm install -g yarn"
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
